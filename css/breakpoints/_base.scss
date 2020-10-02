@@ -1,0 +1,538 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+
+body {
+  font-family: quasimoda, "Noto Sans Japanese", sans-serif;
+  color: #111;
+  font-size: 12px;
+  line-height: 2;
+  color: #111;
+  letter-spacing: 0.1em;
+  text-align: left;
+  font-weight: normal;
+}
+
+//ローディング以外のコンテンツ全てをローディング画面後フェードイン
+#global-container {
+  opacity: 0;
+  transition: opacity 1.5s;
+  transition-delay: 0.5s;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+  transition: color 0.5s;
+
+  &:hover {
+    color: $choverColor !important;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+.font-xs {
+  font-size: 10px;
+}
+.font-sm {
+  font-size: 13px;
+}
+.font-md {
+  font-size: 15px;
+}
+.font-lr {
+  font-size: 18px;
+}
+.font-lg {
+  font-size: 28px;
+}
+.mb-xs {
+  margin-bottom: 3px !important;
+}
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-md {
+  margin-bottom: 45px !important;
+}
+.mb-lg {
+  margin-bottom: 100px !important;
+}
+.pd-section {
+  padding: 80px 0px !important;
+}
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+.content-width-full {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+.main-title {
+  @extend .font-lr;
+  letter-spacing: 0.16em;
+  color: $cMainTitle;
+  display: block;
+  text-transform: uppercase;
+}
+.sub-title {
+  @extend .font-xs;
+  letter-spacing: 0.2em;
+  color: $cSubTitle;
+  text-transform: uppercase;
+}
+.side-title {
+  @extend .font-sm;
+  letter-spacing: 0.2em;
+  color: $cSubTitle;
+  text-transform: uppercase;
+}
+//----logo----//
+.logo {
+  display: flex;
+
+  &__img {
+    max-width: 100px;
+  }
+}
+//----flex----//
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+/******************************************************************
+
+html: index.html
+
+******************************************************************/
+//----領域サイズ----//
+
+#container {
+  background-color: $cWhite; //後ろに隠れたモバイルメニューのロゴを隠す
+  position: relative;
+  transition: transform 0.8s;
+}
+
+//----header----//
+
+header {
+  opacity: 0;
+  transition: all 0.2s;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navHeight;
+  background-color: rgba($color: $cWhite, $alpha: 0.9);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  z-index: 90;
+  border-bottom: 1px dashed $cBlack;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend .content-width;
+  }
+  &__nav {
+    display: none;
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  &__li {
+    text-transform: uppercase;
+    margin-left: 20px;
+
+    & > a {
+      color: $cBlack;
+      text-decoration: none !important;
+      text-transform: uppercase; //大文字表記
+    }
+  }
+
+  & .logo {
+    font-size: 50px;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+}
+//----main----//
+
+//画面サイズごとに高さ変更
+.slider {
+  height: 80vh;
+  &__catch {
+    width: 200px;
+    font-size: 10px;
+  }
+}
+.main-content {
+  margin-top: 80vh;
+
+  position: relative;
+  box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
+
+  &__inner {
+    @extend .content-width-full;
+  }
+}
+.blog {
+  &__head {
+    @extend .mb-lg;
+    text-align: center;
+  }
+  @extend .pd-section;
+
+  &__item {
+    position: relative;
+    @extend .flex;
+    justify-content: space-between;
+    @extend .mb-lg;
+    transition: all 1.5s ease;
+  }
+
+  &__img {
+    z-index: 2;
+    height: 350px; //高さは画面の大きさで変更
+    flex-basis: 60%;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__inner {
+    flex-basis: 40%;
+    padding: 20px 25px 0;
+  }
+  &__title {
+    @extend .mb-xs;
+    @extend .font-sm;
+    color: #111;
+  }
+  &__date {
+    @extend .mb-sm;
+    @extend .font-xs;
+    color: #111;
+  }
+  &__text {
+    color: $cCaption;
+    @extend .mb-xs;
+  }
+}
+//----footer----//
+.footer {
+  position: relative;
+  border-top: 1px dashed $cBlack;
+  padding: 60px 0;
+  @extend .content-width;
+
+  &__scissors {
+    font-size: 20px;
+    z-index: 1;
+    position: absolute;
+    top: -21px;
+    left: -10px;
+  }
+
+  &__nav {
+    @extend .flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__ul {
+    @extend .flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__li,
+  &__copyright {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 10px;
+
+    & > a {
+      color: $cSubTitle;
+    }
+  }
+
+  //footer内のロゴ
+  & .logo {
+    font-size: 38px;
+    justify-content: center;
+    @extend .mb-sm;
+  }
+}
+
+//----サイドバー----//
+.side {
+  text-transform: uppercase;
+  z-index: 1;
+  display: none; //1280upで表示
+  position: fixed;
+  top: 70%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+
+  // & .tween-animate-title {
+  //   color: $cBlack;
+  //   text-decoration: none !important;
+  //   margin: 0 40px;
+  //   vertical-align: middle; //inline要素に指定する
+  //   letter-spacing: 2px;
+  // }
+  .scissors {
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  &.left {
+    left: -50px;
+
+    &.inview {
+      left: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top left; //文字の左上基準の回転にする
+      transform: rotate(-90deg);
+    }
+  }
+  &.right {
+    right: -50px;
+
+    &.inview {
+      right: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top right; //文字の左上基準の回転にする
+      transform: rotate(90deg);
+    }
+  }
+}
+.icon {
+  position: relative;
+
+  &.twitter {
+    &::before {
+      @extend .font-sm;
+      padding-right: 3px;
+      content: "\f081";
+      font-family: "FontAwesome";
+    }
+  }
+  &.insta {
+    &::before {
+      @extend .font-sm;
+      padding-right: 3px;
+      content: "\e055";
+      font-family: "FontAwesome";
+    }
+  }
+}
+/******************************************************************
+
+html: blog.html（詳細ページ）
+
+******************************************************************/
+
+.main-visual {
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(146, 159, 163, 0.7);
+    }
+  }
+
+  &__title {
+    color: $cWhite;
+    @extend .font-lg;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.blog-content {
+  @extend .content-width;
+  @extend .pd-section;
+  @extend .flex;
+  justify-content: space-between;
+
+  .blog-main {
+    @extend .mb-lg;
+    .blog {
+      //ブログ編集部分のスタイル
+      &__inner {
+        flex-basis: none; //ブログ一覧の場合のみ適用他はnone
+        color: #111;
+        & > p,
+        & > img {
+          @extend .mb-md;
+        }
+      }
+      &__date {
+        margin-right: 10px;
+      }
+      &__category {
+      }
+    }
+  }
+
+  .blog-side {
+    &__inner {
+      @extend .mb-md;
+    }
+
+    &__link {
+      position: relative;
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 10px;
+        height: 1px;
+        padding-right: 3px;
+        content: "";
+        background-color: $cBlack;
+        transition: background-color 0.5s;
+      }
+      &:hover::before {
+        background-color: $choverColor !important;
+      }
+    }
+  }
+}
+
+/******************************************************************
+
+html: about.html（プロフページ）
+
+******************************************************************/
+
+.about-content {
+  @extend .content-width;
+  @extend .pd-section;
+
+  .about {
+    &__inner {
+      margin: 0 10%;
+      @extend .flex;
+      justify-content: space-between;
+      .profile {
+        flex-basis: 60%;
+        @extend .mb-lg;
+      }
+      .rope {
+        display: none;
+        position: absolute;
+        top: -80px;
+        left: 20px;
+        width: 1px;
+        height: 80px;
+        background-color: $cBlack;
+      }
+      #scissors {
+        display: none;
+      }
+    }
+  }
+}
+
+// 共通プロフィール
+.profile {
+  &__title {
+    @extend .mb-md;
+  }
+  &__img {
+    width: 100%;
+    height: 300px;
+    @extend .mb-md;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    .name {
+      @extend .font-lr;
+      font-weight: 300;
+      @extend .mb-xs;
+    }
+    .introduction {
+      @extend .font-sm;
+      @extend .mb-xs;
+    }
+  }
+}
+
+.sns {
+  &__title {
+    @extend .mb-sm;
+  }
+  &__li {
+    @extend .mb-sm;
+  }
+  &__link {
+    & > i {
+      padding-right: 10px;
+    }
+  }
+}

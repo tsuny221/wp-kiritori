@@ -1,0 +1,111 @@
+$cMenuClose: $cBlack;
+$cMenuOpen: $cBlack;
+$cMenuBg: rgba(255, 255, 255, 0.9);
+
+.mobile-menu {
+  visibility: hidden; //反応しないよう完全に隠す
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0 auto;
+  transition: all 1s;
+
+  &__btn {
+    opacity: 0;
+    transition: all 0.2s;
+    z-index: 100;
+    position: fixed;
+    top: 25px;
+    right: 40px;
+    display: block;
+    background-color: unset;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+
+    & > span {
+      position: relative;
+      width: 35px;
+      display: block;
+      transition: all 0.8s ease;
+      transform-origin: 80% 50% 0;
+
+      & > svg {
+        position: absolute;
+        top: -30px;
+        right: -35px;
+        fill: #111;
+        width: 70px;
+        transform: rotate(3deg);
+      }
+    }
+  }
+
+  & .logo {
+    display: inline-block;
+    font-size: 38px;
+  }
+
+  &__cover {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $cMenuBg;
+    opacity: 0;
+    visibility: hidden; //クリックにも反応しないよう完全に隠す（アニメーションは動作しないのでopacityも必要）
+    transition: opacity 1s;
+    cursor: pointer;
+  }
+
+  &__item {
+    display: block;
+    transform: translateX(200px);
+    @extend .mb-md;
+    transition: transform 0.9s, opacity 0.5s;
+    opacity: 0;
+  }
+
+  &__link {
+    display: block;
+    margin-top: 30px;
+    color: $cBlack;
+    text-decoration: none !important;
+  }
+}
+
+.menu-open {
+  .mobile-menu {
+    visibility: visible;
+    &__cover {
+      visibility: visible;
+      opacity: 1;
+    }
+    &__item {
+      transform: none;
+      opacity: 1;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.07s;
+        }
+      }
+    }
+    &__btn {
+      & > span {
+        &:nth-child(1) {
+          transform: rotate(-25deg);
+        }
+        &:nth-child(2) {
+          right: 2px;
+          transform: rotate(25deg);
+        }
+      }
+    }
+  }
+}
