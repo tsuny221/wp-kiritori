@@ -215,6 +215,9 @@ header {
   }
 }
 .blog {
+  & > a:hover {
+    color: $cCaption !important;
+  }
   &__head {
     @extend .mb-lg;
     text-align: center;

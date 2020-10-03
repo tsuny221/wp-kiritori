@@ -1187,6 +1187,10 @@ header {
           box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
 }
 
+.blog > a:hover {
+  color: #808085 !important;
+}
+
 .blog__head {
   text-align: center;
 }

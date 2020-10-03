@@ -21,67 +21,21 @@
               <section class="blog">
                 <p class="blog__head main-title">Blog</p>
                 <!-- 記事一個分 -->
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="<?php echo get_template_directory_uri();?>/images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__inner">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="<?php echo get_template_directory_uri();?>/images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__inner">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="<?php echo get_template_directory_uri();?>/images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__inner">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="blog.html" class="blog__inner">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="<?php echo get_template_directory_uri();?>/images/melon.jpg" alt="" />
-                    </div>
-                    <div class="blog__inner">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text"></p>
-                    </div>
-                  </div>
-                </a>
+                <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+                    <a href="<?php the_permalink(); ?>">
+                      <div class="blog__item scroll-up">
+
+                        <div class="blog__img hover-animation">
+                          <?php the_post_thumbnail('full'); ?>
+                        </div>
+                          <div class="blog__inner">
+                            <p class="blog__title"><?php the_title(); ?></p>
+                            <p class="blog__date"><?php the_date(); ?></p>
+                            <p class="blog__text"><?php echo wp_trim_words( get_the_content(), 2, '...' ); ?></p>
+                          </div>
+                      </div>
+                    </a>
+                <?php endwhile; endif; ?>
               </section>
             </div>
           </main>
