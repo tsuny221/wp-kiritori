@@ -1,40 +1,217 @@
+<!-- ここからheader.php -->
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf8" />
+    <title>Kiritori</title>
+    <link rel="stylesheet" href="css/vendors/bootstrap-reboot.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/f3fffa880e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://use.typekit.net/mar0rtq.css" />
   </head>
   <body>
-    <svg id="svg" width="1000px" height="100vh">
-      <path
-        id="st0"
-        d="M918.7,188.5c-26.5,7.4-50.9,21.4-72.5,38.4c-85,66.8-124.9,174.4-158.6,277.1c-19-27.4-53.9-42.9-87-38.5
-        c-33.1,4.4-62.7,28.5-73.9,59.9c-13.5-21.4-38.6-35-63.9-34.6c-25.3,0.5-49.9,14.9-62.6,36.8c-14.8-19.8-50-18.2-63,2.8L90,531.1"
-        stroke=""
-        fill="none"
-      />
-      <circle id="move_circle" cx="0" cy="0" r="5" fill="black">
-        <animateMotion dur="3s" dir="ease" repeatCount="indefinite">
-          <mpath xlink:href="#st0"></mpath>
-        </animateMotion>
-      </circle>
-    </svg>
+    <!-- ローディング画面 -->
+    <div class="loading">
+      <div class="loading__item">
+        <img src="images/hasami.png" class="loading__icon" />
+        <img src="images/logo.png" class="loading__img" />
+      </div>
+    </div>
+    <!-- 全てフェードイン -->
+    <div id="global-container">
+      <!-- ハンバーガーメニュー -->
+      <button class="mobile-menu__btn onclick__btn">
+        <span>
+          <?xml version="1.0" encoding="utf-8"?>
+          <!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 1024 768"
+            style="enable-background: new 0 0 1024 768"
+            xml:space="preserve"
+          >
+            <path
+              d="M570.4,367.6c-3.4,0.5-5,1.1-6.6,1c-11.8-1.1-19.7,4.1-25,13.6c-9.2,16.4-23.3,21-42.9,20.8c-109.5-1-218.9-0.8-328.4-1
+                              	c-2,0-4-0.2-6.2-0.3c-0.7-5.5,1.8-7.3,7.1-7.9c92-10.6,184-21.5,276-32.2c36.3-4.2,72.5-8.4,108.8-12.8c4.2-0.5,6.4,0.3,8.2,4
+                              	C563.8,357.5,567,362,570.4,367.6z M456.6,369.3c-6.7,3.6-8.9,11.4-5.1,17.7c3.8,6.3,12.2,8.4,18.8,4.7c6.2-3.5,8.5-11.4,5-17.4
+                              	C471.7,368.1,463.1,365.8,456.6,369.3z"
+            />
+            <path
+              d="M558.2,342.8c11.8-1.5,21.4-2.6,30.9-4c14.6-2.2,29.4-4,43.8-7.2c24.1-5.3,38.1-20.2,44.9-42.6c9.9-32.8,45.1-48,69.9-47.3
+                              	c40.1,1.2,67.5,30.5,70.7,61.5c5.3,50.5-49.5,89.4-99,69.6c-21.3-8.5-42.8-10.5-65.4-8c-24.6,2.6-49.2,4.5-73.9,6.4
+                              	c-1.8,0.1-4.7-0.7-5.6-2C569.1,361,564.1,352.5,558.2,342.8z M795.2,284.4c-15.8-24.8-46.3-35.2-74.7-20.9
+                              	c-27,13.6-37.6,45-23.5,70.1c14.6,26,48.1,35.9,75.4,22.3C799.7,342.2,809.9,310.3,795.2,284.4z"
+            />
+          </svg>
+        </span>
+        <span>
+          <?xml version="1.0" encoding="utf-8"?>
+          <!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 1024 768"
+            style="enable-background: new 0 0 1024 768"
+            xml:space="preserve"
+          >
+            <path
+              d="M571.9,386.8c-3.5-0.2-5.2-0.6-6.7-0.3c-11.6,2.3-20.1-2-26.5-10.9c-11.1-15.4-25.7-18.6-45.2-16.4
+                            	c-109,12.3-218.2,23.4-327.3,34.9c-2,0.2-4,0.6-6.1,0.9c-0.1,5.6,2.6,7.1,8,7.2c93,1.1,186,2.4,279,3.7c36.7,0.5,73.3,0.9,110,1.6
+                            	c4.2,0.1,6.3-0.9,7.7-4.8C566.4,397.6,569.1,392.7,571.9,386.8z M458.1,396.8c-7.1-2.9-10.2-10.4-7.1-17.2
+                            	c3.1-6.7,11.2-9.6,18.2-6.6c6.6,2.9,9.8,10.5,7,16.8C473.4,396.4,465,399.6,458.1,396.8z"
+            />
+            <path
+              d="M562.5,412.7c11.9,0.3,21.6,0.3,31.3,0.8c14.9,0.7,29.8,1,44.5,2.6c24.6,2.8,40.4,16.2,49.7,37.8
+                            	c13.7,31.7,50.5,43.3,75.2,40c39.9-5.3,63.7-37.4,63.4-68.6c-0.6-50.9-59.7-84-106.8-59.2c-20.2,10.7-41.5,14.9-64.3,14.8
+                            	c-24.8-0.1-49.6,0.6-74.4,1.2c-1.8,0-4.6,1.2-5.3,2.6C571.3,393.5,567.3,402.5,562.5,412.7z M805.6,446.5
+                            	c-12.9,26.4-42.1,39.8-72,28.5c-28.5-10.7-42.7-41-31.5-67.5c11.6-27.5,43.8-40.8,72.6-30C803.4,388.5,817.2,419.3,805.6,446.5z"
+            />
+          </svg>
+        </span>
+      </button>
+      <nav class="mobile-menu">
+        <ul class="mobile-menu__main">
+          <div class="logo mobile-menu__item">
+            <img src="images/logo.png" alt="" class="logo__img" />
+          </div>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="about.html">
+              <span class="main-title">About</span>
+              <span class="sub-title">わたしについて</span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="blog.html">
+              <span class="main-title">Blog</span>
+              <span class="sub-title">ブログ</span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="contact.html">
+              <span class="main-title">Contact</span>
+              <span class="sub-title">お問い合わせ</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-menu__cover onclick__btn"></div>
+      <div id="container">
+        <!-- ヘッダー-->
+        <header class="header">
+          <div class="header__inner">
+            <a href="index.html">
+              <div class="logo">
+                <img src="images/logo.png" alt="" class="logo__img" />
+              </div>
+            </a>
+            <nav class="header__nav">
+              <ul class="header__ul">
+                <li class="header__li"><a href="about.html">About</a></li>
+                <li class="header__li"><a href="blog.html">Blog</a></li>
+                <li class="header__li"><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <!-- ここまでheader.php -->
+        <main>
+          <div class="main-content__inner">
+            <section class="blog">
+              <p class="blog__head main-title">
+                            Contact
+                          </p>
+              <!-- 問い合わせフォーム -->
+              <div class="form">
+                <div class="form__inner">
+                  <div class="form_content">
+                  <label class="form_label" for="fullname">お名前<span>必須</span></label>
+                  <input type="text"name="fullname"id="fullname">
+                </div>
+                <div class="form_content">
+                  <label class="form_label" for="email">メールアドレス<span>必須</span></label>
+                  <input type="text" name="email" id="email">
+                </div>
+                <div class="form_content">
+                  <label class="form_label" for="message">メッセージ本文<span>必須</span></label>
+                  <textarea name="message"id="message"></textarea>
+                </div>
+                <div class="form_content">
+                  <input　type="submit"　name="send" value="確認画面へ" class="btn　btnsend" />
+                </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          </main>
+          </div>
+        </main>
 
-    <!-- <svg id="svg" width="100%" height="500">
-      <path
-        id="st0"
-        d="M694.1,111.8c-56.6,1.4-107.5,38.5-140,84.9c-32.4,46.4-49.5,101.5-66.1,155.7c-3.9,12.8-7.8,25.5-11.8,38.3
-  	c-3.9-6.5-9.8-16-17.2-27.3c-23.3-35.7-35-53.5-47.9-63.6c-34.5-27.1-76.5-23-79.3-22.6c-32.3,3.6-53.3,21.3-60.1,27.2
-  	c-36.7,31.9-40.7,76.3-41.4,86.5c-1.1-7.2-4.2-19.8-13.9-31.3c-16.7-19.9-49.3-32.3-76.5-18.3c-26.7,13.7-31.5,44.3-32,47.7"
-        stroke=""
-        fill="none"
-      />
-      <circle id="move_circle" cx="0" cy="0" r="5" fill="red">
-        <animateMotion dur="2s" dir="ease" repeatCount="indefinite">
-          <mpath xlink:href="#st0"></mpath>
-        </animateMotion>
-      </circle>
-    </svg> -->
+        <!-- サイドバー　ここからsidebar.php -->
+        <aside class="side left">
+          <div class="side__inner">
+            <span class="scissors">✂︎</span>---<a class="twitter icon" href="#"
+              >Twitter</a
+            >
+            <a class="insta icon" href="#">Instagram</a>---
+          </div>
+        </aside>
+        <aside class="side right">
+          <div class="side__inner">
+            <span><span class="scissors">✂︎</span>----&copy;tsuny----</span>
+          </div>
+        </aside>
+        <!-- ここまでsidebar.php -->
+
+        <!-- フッター　ここからfooter.php -->
+        <footer class="footer">
+          <span class="footer__scissors">
+            <div>✂︎</div>
+          </span>
+          <div class="logo">
+            <img src="images/logo.png" alt="" class="logo__img" />
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__ul">
+              <li class="footer__li"><a href="about.html">About</a></li>
+              <li class="footer__li"><a href="blog.html">Blog</a></li>
+              <li class="footer__li"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="footer__copyright">&copy; tsuny</div>
+          </nav>
+        </footer>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="js/vendors/jquery-3.5.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="js/libs/inview-animation.js"></script>
+    <script src="js/libs/slider.js"></script>
+    <script src="js/libs/mobile-menu.js"></script>
+    <script src="js/libs/scroll-animation.js"></script>
+    <script src="js/libs/text-animation.js"></script>
+    <script src="js/libs/cut-animation.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
+<!-- ここまでfooter.php -->

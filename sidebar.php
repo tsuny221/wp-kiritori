@@ -1,4 +1,4 @@
-<!-- サイドバー　ここからsidebar.php -->
+<!-- snsサイドバー　-->
         <aside class="side left">
           <div class="side__inner">
             <span class="scissors">✂︎</span>---<a
@@ -14,4 +14,3 @@
             <span><span class="scissors">✂︎</span>----&copy;tsuny----</span>
           </div>
         </aside>
-        <!-- ここまでsidebar.php -->

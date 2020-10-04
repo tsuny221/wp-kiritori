@@ -986,6 +986,15 @@ img {
   vertical-align: bottom;
 }
 
+.btn {
+  display: block;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.5;
+}
+
 .font-xs, .sub-title, .blog__date {
   font-size: 10px;
 }
@@ -1010,12 +1019,12 @@ img {
   margin-bottom: 3px !important;
 }
 
-.mb-sm, .slider__catch__img, .blog__date, .footer .logo, .sns__title, .sns__li {
+.mb-sm, .slider__catch__img, .blog__date, .footer .logo, .sns__title, .sns__li, .form__cont {
   margin-bottom: 16px !important;
 }
 
-.mb-md, .mobile-menu__item, .blog-content .blog-main .blog__inner > p,
-.blog-content .blog-main .blog__inner > img, .blog-content .blog-side__inner, .profile__title, .profile__img {
+.mb-md, .mobile-menu__item, .blog-content .blog-main .blog__inner p,
+.blog-content .blog-main .blog__inner img, .blog-content .blog-side__inner, .profile__title, .profile__img, .contact-content .contact__inner > .contact-title, .page-nation {
   margin-bottom: 45px !important;
 }
 
@@ -1023,7 +1032,7 @@ img {
   margin-bottom: 100px !important;
 }
 
-.pd-section, .blog, .blog-content, .about-content {
+.pd-section, .blog, .blog-content, .about-content, .contact-content {
   padding: 80px 0px !important;
 }
 
@@ -1035,7 +1044,7 @@ img {
   padding-bottom: 80px !important;
 }
 
-.content-width, .header__inner, .footer, .blog-content, .about-content {
+.content-width, .header__inner, .footer, .blog-content, .about-content, .contact-content {
   width: 90%;
   margin: 0 auto;
   max-width: 1070px;
@@ -1076,7 +1085,7 @@ img {
   max-width: 100px;
 }
 
-.flex, .blog__item, .footer__nav, .footer__ul, .blog-content, .about-content .about__inner {
+.flex, .blog__item, .footer__nav, .footer__ul, .blog-content, .about-content .about__inner, .form__cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1394,18 +1403,25 @@ html: blog.html（詳細ページ）
   color: #111;
 }
 
+.blog-content .blog-main .blog__inner img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .blog-content .blog-main .blog__date {
   margin-right: 10px;
 }
 
-.blog-content .blog-side__link {
+.blog-content .blog-side__list > li {
   position: relative;
   padding-left: 15px;
 }
 
-.blog-content .blog-side__link::before {
+.blog-content .blog-side__list > li > a::before {
   position: absolute;
-  top: 10px;
+  top: 11px;
   left: 0;
   width: 10px;
   height: 1px;
@@ -1416,7 +1432,7 @@ html: blog.html（詳細ページ）
   transition: background-color 0.5s;
 }
 
-.blog-content .blog-side__link:hover::before {
+.blog-content .blog-side__list > li > a:hover::before {
   background-color: #ccc !important;
 }
 
@@ -1471,6 +1487,126 @@ html: about.html（プロフページ）
   padding-right: 10px;
 }
 
+/******************************************************************
+
+html: contact.html（お問い合わせページ）
+
+******************************************************************/
+.form-style, .form__input, .form__textarea {
+  padding: 5px;
+  border: none;
+  background-color: #f4f4f4;
+}
+
+.contact-content .contact__inner {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-content .contact__inner > .contact-title {
+  text-align: center;
+}
+
+.form__inner {
+  display: block;
+  width: 50%;
+}
+
+.form__cont .send-btn {
+  margin: 0 auto;
+  padding: 10px 30px;
+  color: white;
+  background-color: #cccccc;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.form__cont .return-btn {
+  border-radius: 15px;
+  padding: 5px 20px;
+  background-color: #cccccc;
+  color: white;
+}
+
+.form__input {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  width: 100%;
+}
+
+.form__textarea {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  width: 100%;
+}
+
+.form__label {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  display: block;
+}
+
+.form__label > span {
+  color: white;
+  background-color: #cccccc;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 2px;
+}
+
+/******************************************************************
+
+html: ページネーション
+
+******************************************************************/
+.page-nation {
+  text-align: center;
+}
+
+.page-nation a {
+  border: none;
+  font-family: quasimoda, sans-serif;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  margin: 0 6px;
+  padding: 0 4px 6px;
+  line-height: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 13px;
+}
+
+.page-nation span {
+  font-family: quasimoda, sans-serif;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  margin: 0 6px;
+  padding: 0 2px 6px;
+  line-height: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 13px;
+}
+
+.page-nation span.current {
+  border: none;
+}
+
+.page-nation span.current::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
 @media (min-width: 480px) {
   /******************************************************************
 
@@ -1500,13 +1636,13 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   .font-lg, .main-visual__title {
     font-size: 28px;
   }
-  .mb-sm, .slider__catch__img, .blog__date, .footer .logo, .sns__title, .sns__li {
+  .mb-sm, .slider__catch__img, .blog__date, .footer .logo, .sns__title, .sns__li, .form__cont {
     margin-bottom: 25px !important;
   }
   .pb-sm {
     padding-bottom: 20px !important;
   }
-  .flex, .blog__item, .footer__nav, .footer__ul, .blog-content, .about-content .about__inner {
+  .flex, .blog__item, .footer__nav, .footer__ul, .blog-content, .about-content .about__inner, .form__cont {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;

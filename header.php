@@ -79,23 +79,23 @@
       </button>
       <nav class="mobile-menu">
         <ul class="mobile-menu__main">
-          <div class="logo mobile-menu__item">
+          <a href="<?php echo home_url();?>" class="logo mobile-menu__item">
             <img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" class="logo__img" />
-          </div>
+          </a>
           <li class="mobile-menu__item">
-            <a class="mobile-menu__link" href="about.html">
+            <a class="mobile-menu__link" href="<?php echo home_url('/about');?>">
               <span class="main-title">About</span>
               <span class="sub-title">わたしについて</span>
             </a>
           </li>
           <li class="mobile-menu__item">
-            <a class="mobile-menu__link" href="blog.html">
+            <a class="mobile-menu__link" href="<?php echo home_url('/blog');?>">
               <span class="main-title">Blog</span>
               <span class="sub-title">ブログ</span>
             </a>
           </li>
           <li class="mobile-menu__item">
-            <a class="mobile-menu__link" href="contact.html">
+            <a class="mobile-menu__link" href="<?php echo home_url('/contact');?>">
               <span class="main-title">Contact</span>
               <span class="sub-title">お問い合わせ</span>
             </a>
@@ -107,16 +107,16 @@
         <!-- ヘッダー-->
         <header class="header">
           <div class="header__inner">
-            <a href="">
+            <a href="<?php echo home_url();?>">
               <div class="logo">
                 <img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" class="logo__img" />
               </div>
             </a>
             <nav class="header__nav">
               <ul class="header__ul">
-                <li class="header__li"><a href="about.html">About</a></li>
-                <li class="header__li"><a href="blog.html">Blog</a></li>
-                <li class="header__li"><a href="contact.html">Contact</a></li>
+                <li class="header__li"><a href="<?php echo home_url('/about');?>">About</a></li>
+                <li class="header__li"><a href="<?php echo home_url('/blog');?>">Blog</a></li>
+                <li class="header__li"><a href="<?php echo home_url('/contact');?>">Contact</a></li>
               </ul>
             </nav>
           </div>

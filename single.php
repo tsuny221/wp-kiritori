@@ -1,4 +1,3 @@
- <!-- メイン　ここからindex.php -->
  <?php get_header(); ?>
 <div id="content">
 <div class="main-visual">
@@ -9,7 +8,7 @@
     <?php the_post_thumbnail( 'full', array( 'class' => 'main-visual__img' ) ); ?>
   </div>
 </div>
-<!-- 記事 -->
+<!-- 記事詳細 -->
 <main class="blog blog-content">
   <article class="blog-main">
     <div class="blog__inner">
@@ -23,33 +22,11 @@
   </article>
 
   <div class="blog-side blog__inner">
-    <div class="blog-side__inner scroll-up">
-      <p class="side-title">Recent Entry</p>
-      <ul>
-        <li class="blog-side__li">
-          <a href="#" class="blog-side__link">タイトル</a>
-        </li>
-      </ul>
-    </div>
-    <div class="blog-side__inner scroll-up">
-      <p class="side-title">ARCHIVES</p>
-      <ul>
-        <li class="blog-side__li">
-          <a href="#" class="blog-side__link">タイトル</a>
-        </li>
-      </ul>
-    </div>
-    <div class="blog-side__inner scroll-up">
-      <p class="side-title">CATEGORY</p>
-      <ul class="blog-side-title__ul">
-        <li class="blog-side__li">
-          <a href="#" class="blog-side__link">タイトル</a>
-        </li>
-      </ul>
-    </div>
-</div>
+    <?php get_sidebar('recent');?>
+    <?php get_sidebar('archives');?>
+    <?php get_sidebar('categories');?>
+  </div>
 </main>
 </div>
-<!-- ここまでindex.php -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
