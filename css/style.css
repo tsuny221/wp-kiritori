@@ -122,14 +122,13 @@
 }
 
 .menu-open .mobile-menu__btn > span:nth-child(1) {
-  -webkit-transform: rotate(-25deg);
-          transform: rotate(-25deg);
+  -webkit-transform: rotate(-20deg) translateY(2px);
+          transform: rotate(-20deg) translateY(2px);
 }
 
 .menu-open .mobile-menu__btn > span:nth-child(2) {
-  right: 2px;
-  -webkit-transform: rotate(25deg);
-          transform: rotate(25deg);
+  -webkit-transform: rotate(20deg) translateY(-1px) translateX(-2px);
+          transform: rotate(20deg) translateY(-1px) translateX(-2px);
 }
 
 .slider {

@@ -99,11 +99,10 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
     &__btn {
       & > span {
         &:nth-child(1) {
-          transform: rotate(-25deg);
+          transform: rotate(-20deg) translateY(2px);
         }
         &:nth-child(2) {
-          right: 2px;
-          transform: rotate(25deg);
+          transform: rotate(20deg) translateY(-1px) translateX(-2px);
         }
       }
     }
